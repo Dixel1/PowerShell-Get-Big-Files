@@ -1,0 +1,1 @@
+Get-ChildItem -Path C:\TEST -File -Recurse -ErrorAction SilentlyContinue | Where-Object {$_.Length -gt 500MB} | Sort-Object length -Descending | Select-Object Name,Directory,@{n='GB';e={"{0:N2}" -F ($_.length/ 1GB)}}
